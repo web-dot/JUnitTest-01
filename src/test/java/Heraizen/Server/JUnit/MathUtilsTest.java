@@ -3,13 +3,14 @@ package Heraizen.Server.JUnit;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class MathUtilsTest {
 
     MathUtils mathUtils;
     
-    @BeforeAll
+    @BeforeEach
     void init() {
         mathUtils = new MathUtils();
     }
@@ -24,7 +25,7 @@ class MathUtilsTest {
     
     @Test
     void testDivide() {
-        assertThrows(NullPointerException.class, () -> mathUtils.divide(1, 0), "divide by 0 should throw");
+        assertThrows(ArithmeticException.class, () -> mathUtils.divide(1, 0), "divide by 0 should throw");
     }
     
     @Test
